@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last Kiss</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gothic', sans-serif;
+            background-image: url('https://i.pinimg.com/736x/a1/8e/4b/a18e4b6e0dad0891858e63ed244f17af.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #800000; /* Темно-бордовый цвет для текста */
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        h1 {
+            font-size: 72px; /* Увеличил шрифт */
+            font-family: 'Old English Text MT', serif;
+            color: #800000; /* Темно-бордовый цвет */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 40px; /* Расстояние между значками */
+            margin-right: 350px; /* Подвинул значки ближе к центру */
+        }
+        .social-icons img {
+            width: 150px;
+            height: 150px;
+            transition: transform 0.3s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px; /* Уменьшил шрифт на мобильных */
+            }
+            .social-icons {
+                margin-right: 50px; /* Подвинул значки ближе к краю на мобильных */
+            }
+            .social-icons img {
+                width: 80px; /* Уменьшил значки на мобильных */
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Last Kiss</h1>
+        <div class="social-icons">
+            <a href="https://t.me/Last_Kiss000" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+            </a>
+            <a href="https://www.instagram.com/last_kiss1.011?igsh=dTM4bTFicnRocHZ0" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://vk.com/lastkiss000" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
