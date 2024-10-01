@@ -13,28 +13,44 @@
             background-size: cover;
             background-position: center;
             color: #800000; /* Темно-бордовый цвет для текста */
+            overflow: hidden; /* Чтобы скрыть полосы прокрутки при анимации */
         }
         .container {
             position: relative;
             height: 100vh;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start; /* Выравнивание элементов влево */
             align-items: center;
+            text-align: left; /* Текст выравнивается по левому краю */
+            padding-left: 50px; /* Отступ от левого края */
         }
         h1 {
             font-size: 72px; /* Увеличил шрифт */
             font-family: 'Old English Text MT', serif;
             color: #800000; /* Темно-бордовый цвет */
-            position: absolute;
-            top: 50px;
-            left: 50px;
+            cursor: pointer; /* Курсор указывает, что элемент кликабельный */
+            opacity: 0; /* Скрываем элемент по умолчанию */
+            transform: translateY(-50px); /* Сдвинем вверх */
+            animation: fadeInUp 1s forwards; /* Анимация */
+            animation-delay: 0.5s; /* Задержка перед началом анимации */
+        }
+        .description {
+            font-size: 24px; /* Размер текста описания */
+            font-family: 'Old English Text MT', serif; /* Готический шрифт */
+            color: #800000; /* Темно-бордовый цвет */
+            opacity: 0; /* Скрываем элемент по умолчанию */
+            transform: translateY(-20px); /* Сдвинем вверх */
+            animation: fadeInUp 1s forwards; /* Анимация */
+            animation-delay: 1s; /* Задержка перед началом анимации */
+            margin-top: 20px; /* Отступ сверху для описания */
         }
         .social-icons {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 40px; /* Расстояние между значками */
-            margin-right: 350px; /* Подвинул значки ближе к центру */
+            margin-top: 40px; /* Отступ сверху */
+            margin-left: 50px; /* Отступ слева для значков */
         }
         .social-icons img {
             width: 150px;
@@ -44,10 +60,20 @@
         .social-icons img:hover {
             transform: scale(1.1);
         }
+        /* Анимация */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1; /* Полная видимость */
+                transform: translateY(0); /* Вернуться в исходное положение */
+            }
+        }
         /* Адаптация для мобильных устройств */
         @media (max-width: 768px) {
             h1 {
                 font-size: 48px; /* Уменьшил шрифт на мобильных */
+            }
+            .description {
+                font-size: 16px; /* Размер текста описания на мобильных */
             }
             .social-icons {
                 margin-right: 50px; /* Подвинул значки ближе к краю на мобильных */
@@ -61,7 +87,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Last Kiss</h1>
+        <div>
+            <h1 id="videoTrigger">Last Kiss</h1>
+            <div class="description">
+                hello dear listener,<br>
+                I am a beatmaker and arranger with the nickname last kiss,<br>
+                I have been writing beats and making music for about 10 years,<br>
+                I am ready to experiment and make the most interesting music.<br>
+                Go to my social networks and let's get to know each other better!
+            </div>
+        </div>
         <div class="social-icons">
             <a href="https://t.me/Last_Kiss000" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
@@ -74,5 +109,22 @@
             </a>
         </div>
     </div>
+
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.8); z-index: 1000;">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZqQsCu1bkF8?autoplay=1&fullscreen=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <button style="position: absolute; top: 20px; right: 20px; font-size: 24px; color: white; background: transparent; border: none; cursor: pointer;" onclick="closeVideo()">✖</button>
+    </div>
+
+    <script>
+        document.getElementById('videoTrigger').addEventListener('click', function() {
+            document.getElementById('videoModal').style.display = 'block';
+        });
+
+        function closeVideo() {
+            document.getElementById('videoModal').style.display = 'none';
+            const iframe = document.querySelector('iframe');
+            iframe.src = iframe.src; // Сбрасываем src, чтобы остановить видео
+        }
+    </script>
 </body>
 </html>
